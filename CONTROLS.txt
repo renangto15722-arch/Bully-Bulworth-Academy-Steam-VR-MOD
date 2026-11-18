@@ -1,0 +1,33 @@
+BULLY VR for PC - controls (Touch / VR controllers, first person)
+=================================================================
+
+Left stick ............... walk (forward = where you look)
+Right stick left/right ... snap turn (30 deg, change it in the VR menu > View)
+Right stick up ........... jump
+A ........................ sprint
+B ........................ attack
+X ........................ jump / back in menus
+Y ........................ action
+Menu button .............. pause (Start)
+Left trigger ............. lock-on (L1)
+Right trigger ............ R1
+Stick clicks ............. L3 / R3
+
+Right thumbrest + left stick up/down/left/right ... game Y / A / X / B
+Left thumbrest + right stick ........................ d-pad
+(the thumbrest is the flat touch area next to the face buttons)
+
+Both grips + X ........... recenter the view
+Both grips + Y ........... VR menu (pages: Body, Hands, View, Fight, Controls guide)
+
+FIGHTING
+- Punch with your real fists: a fast punch (about 2 m/s or more) that hits the
+  opponent does real damage. Speed and strength are in VR menu > Fight.
+- Fists up in front of your face = block.
+- Both grips with your hands in front of you = grab (grapple).
+
+BODY
+- You see Jimmy's body; his arms follow your controllers (IK) and the body
+  turns with the headset. Fine tuning (hand angle, arm reach, eye height...) is
+  in VR menu > Body / Hands. Every page has "Reset this page to defaults".
+- Settings are saved in BullyVR.ini in the game folder.

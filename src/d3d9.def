@@ -1,0 +1,21 @@
+; Every export of the system d3d9.dll (SysWOW64, Windows 10 19045), so the
+; game and d3dx9_38 find everything they import or look up by name.
+LIBRARY d3d9
+EXPORTS
+    Direct3DCreate9                          = Proxy_Direct3DCreate9
+    Direct3DCreate9Ex                        = Proxy_Direct3DCreate9Ex
+    Direct3DCreate9On12                      = Proxy_Direct3DCreate9On12
+    Direct3DCreate9On12Ex                    = Proxy_Direct3DCreate9On12Ex
+    D3DPERF_BeginEvent                       = Stub_D3DPERF_BeginEvent
+    D3DPERF_EndEvent                         = Stub_D3DPERF_EndEvent
+    D3DPERF_GetStatus                        = Stub_D3DPERF_GetStatus
+    D3DPERF_QueryRepeatFrame                 = Stub_D3DPERF_QueryRepeatFrame
+    D3DPERF_SetMarker                        = Stub_D3DPERF_SetMarker
+    D3DPERF_SetOptions                       = Stub_D3DPERF_SetOptions
+    D3DPERF_SetRegion                        = Stub_D3DPERF_SetRegion
+    DebugSetLevel                            = Stub_DebugSetLevel
+    DebugSetMute                             = Stub_DebugSetMute
+    Direct3D9EnableMaximizedWindowedModeShim = Stub_Direct3D9EnableMaximizedWindowedModeShim
+    Direct3DShaderValidatorCreate9           = Stub_Direct3DShaderValidatorCreate9
+    PSGPError                                = Stub_PSGPError
+    PSGPSampleTexture                        = Stub_PSGPSampleTexture

@@ -1,0 +1,10 @@
+build/
+out/
+*.dll
+*.exe
+*.pdb
+*.lib
+*.obj
+*.log
+.vs/
+tmp/
