@@ -448,7 +448,7 @@ void Body_SetGameArm(int hand)
 }
 
 // The holding arm's grab pose, relative to the chest, taken every frame while
-// Jimmy only holds; while a grapple punch plays (Renan 03/11: the holding arm
+// Jimmy only holds; while a grapple punch plays (03/11: the holding arm
 // must not move when the other hand hits) that pose is put back each frame.
 static bool  s_gameArmFreeze;
 static bool  s_haveHoldPose;
@@ -468,7 +468,7 @@ static void HoldArmPose(unsigned ped, unsigned joints, float pedYaw);
 
 // While the grab lands (attempt + success, ~0.5 s) the game's reach (SetJoint /
 // reach IK) stays on for the GRABBING arm only; the free arm keeps its
-// controller throughout (Renan 03/11). Once he holds, it is refused.
+// controller throughout (03/11). Once he holds, it is refused.
 static bool s_gameArmReach;
 static bool s_holdSwing = true;    // the holding arm swung at the shoulder to the kid (grab turn)
 void Body_GameArmReach(bool allow)
@@ -488,7 +488,7 @@ static bool GameArmJoint(int j)
 // is attempted (s_gameArmReach).
 static bool AnimatedArmJoint(int j)
 {
-    return GameArmJoint(j);   // the free arm stays on its controller, always (Renan 03/11)
+    return GameArmJoint(j);   // the free arm stays on its controller, always (03/11)
 }
 
 static float s_handBack;                     // wrist behind the grip pose, metres
@@ -618,7 +618,7 @@ static void SolveArm(unsigned joints, const Arm& arm, const float* target, const
     dist = Len3(n);
     if (!Norm3(n))
         return;
-    // reach bonus (Renan 03/11: the arms could not reach the kids to punch /
+    // reach bonus (03/11: the arms could not reach the kids to punch /
     // grab): from 40% of the arm's length out to fully held out, the hand goes
     // up to [Body] ReachBonus further along shoulder -> controller. Close to the
     // body it stays exactly on the controller.
@@ -771,7 +771,7 @@ static void SolveArm(unsigned joints, const Arm& arm, const float* target, const
 
 
 // ---- body yaw: the body IS the head's yaw -----------------------------------------------
-// The body's yaw (s_bodyYaw) belongs to the headset, always (Renan 03/11: the
+// The body's yaw (s_bodyYaw) belongs to the headset, always (03/11: the
 // body must always follow the headset - the old easing [TurnSmooth] and head
 // freedom [TurnFreedom] left it up to 15-20 deg behind, and running left it to
 // the run's direction). The whole skeleton (legs included) is turned about the
@@ -821,7 +821,7 @@ static void UpdateBodyYaw(float pedYaw)
     }
     if (!Stereo_LookYaw(&look))
         return;
-    // Locked on (L1 / guard): the body still follows the headset only (Renan
+    // Locked on (L1 / guard): the body still follows the headset only (
     // 03/11: the headset is the one reference for the body's yaw; the lock-on
     // only picks the enemy)
     if (Input_LockOn() != s_lockLogged)
@@ -1057,7 +1057,7 @@ static void HoldArmPose(unsigned ped, unsigned joints, float pedYaw)
         PutHoldPose(joints);
         HoldDiag(joints, "freeze");
     }
-    // Renan 03/11: the held kid is turned by the holding arm's controller
+    // 03/11: the held kid is turned by the holding arm's controller
     // (src\gamecam.cpp FollowHeadset turns Jimmy's game heading to it, the
     // grapple carries the kid), while the body keeps the headset's yaw. The
     // holding arm - its animated pose as it is - swings about the shoulder by
@@ -1067,7 +1067,7 @@ static void HoldArmPose(unsigned ped, unsigned joints, float pedYaw)
         const int   j0   = s_gameArm == 1 ? 27 : 19;
         // towards where the kid really is (src\gamecam.cpp: the game swings him
         // round Jimmy the other way to his heading - aiming at the heading put
-        // the arm on the wrong side, Renan 03/11)
+        // the arm on the wrong side, 03/11)
         float       turn = 0.0f;
         {
             const unsigned kid = Deref(ped, 0x155c);
@@ -1583,7 +1583,7 @@ static void InstallShiftHook()
 // 0x4a3cd0) puts BOTH of Jimmy's hands on the kid this way AFTER our IK. In
 // first person with our IK on, it is refused for both arms: the free arm keeps
 // the controller, and the arm that holds (Body_SetGameArm) keeps the grab
-// ANIMATION's whole pose, carried by the torso. (Renan 03/11, headset: with
+// ANIMATION's whole pose, carried by the torso. (03/11, headset: with
 // this reach left on, its target came from the game's body - not the one turned
 // / leant by the headset - so the hand stuck to one spot and the rest of the
 // arm followed the torso: the arm came apart.)
@@ -1974,7 +1974,7 @@ void Body_DebugKeys()
             (joints = Deref(Deref(Deref(ped, PED_MODEL), 0x14), 8)) != 0)
         {
             HoldDiag(joints, s_gameArmFreeze ? "frameF" : "frame");
-            // Renan 03/11: the holding arm is the animation's, all of it down to
+            // 03/11: the holding arm is the animation's, all of it down to
             // the fingers - measured, during the plain hold too the game moved it
             // after our pass (elbow ~0.2 m lower at the frame's end)
             if (s_haveAnimPose && !s_gameArmReach)

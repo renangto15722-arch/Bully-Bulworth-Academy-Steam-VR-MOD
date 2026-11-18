@@ -516,7 +516,7 @@ typedef void (*PFN_PedFaceHeading)(void* ped, int gradual, float radians);
 
 static bool s_holding;   // Jimmy holds a kid (wrestling section below)
 
-// ---- the held kid does not break free (Renan 03/11) -----------------------------------------
+// ---- the held kid does not break free (03/11) -----------------------------------------
 // Measured: ~3-4 s into a hold the kid's AI plays GrappleReversals/StandingReversals/
 // GrappleBreak/Break_GIVE (Jimmy Break_RCV). Replaying the hold nodes does not reset
 // it (not a node play time); putting the hold back after the break does not stick.
@@ -887,7 +887,7 @@ static void DummyFrame()
 //   holding and doing nothing ~3 s: the kid breaks free (GrappleReversals/.../GrappleBreak);
 //   the same kid cannot be grabbed again for a few seconds after (the game's attempt misses).
 //   RT (R1) does nothing: the grab is Y, as on the Quest.
-// Gestures (Renan's Quest rules, GESTOS 9-11):
+// Gestures (Quest rules, GESTOS 9-11):
 //   grab  = both grips with both fists touching the same kid -> pad Y once
 //   push  = while holding, both hands thrust forward together -> pad Y once
 //   punch while holding = a physical punch on the held kid by a hand WITHOUT
@@ -959,7 +959,7 @@ static bool WrestlePunch(char* victim, int hand)
         return false;
     // just grabbed: the hands' move to grab is not a punch (measured 03/11: it
     // landed as a punch and the hit reaction broke the grab). Punching with the
-    // grips closed is still a punch (Renan punches with closed hands, 03/11).
+    // grips closed is still a punch (the player punches with closed hands, 03/11).
     if (hand == s_grabHand && (s_inGrapple || GetTickCount() - s_lastGrab < 1200))
         return true;   // the hand that grabs / holds: never a punch
     // the grab landing (attempt + success): the grabbing arm jumps from its
@@ -1238,7 +1238,7 @@ static void WrestleFrame()
         s_speedT = qt;
     }
 
-    // D6 grab, both hands (Renan 03/11, last version): both fists on the kid,
+    // D6 grab, both hands (03/11, last version): both fists on the kid,
     // still, and both grips pressed (within 0.4 s of each other) -> the game's
     // grab (pad Y). The LEFT arm then holds him in the game's own grab
     // animation (Body_SetGameArm 0) until let go / pushed; the RIGHT arm stays
@@ -1330,7 +1330,7 @@ static void WrestleFrame()
         }
         s_pushHave  = true;
         s_pushPrevT = qt;
-        // Holding (Renan 03/11): the holding hand's grip pressed -> [that controller
+        // Holding (03/11): the holding hand's grip pressed -> [that controller
         // pushed forward] -> released. With the push: the game's push (pad Y);
         // without: let go. Its arm is the game's, so the thrust is read from the
         // controller itself (head-yaw forward, LOCAL space). Only a press that

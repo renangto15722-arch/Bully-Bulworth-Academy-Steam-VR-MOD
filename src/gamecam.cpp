@@ -105,7 +105,7 @@ static void FollowHeadset()
     // normal locomotion runs him, turned by the game towards the stick - which
     // is relative to the headset (input.cpp Hook_HeadingForMovement), so
     // running forward still faces forward.
-    // Holding a kid (Renan 03/11): standing, ONLY the holding arm's controller
+    // Holding a kid (03/11): standing, ONLY the holding arm's controller
     // turns him - the kid goes round Jimmy by as much as that controller has gone
     // round a fixed point (where the headset was when the hold began), measured
     // in the room's own space: the head moving or turning afterwards does not

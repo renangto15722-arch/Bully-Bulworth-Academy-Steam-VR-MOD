@@ -1,7 +1,7 @@
 # bully-autostart.ps1 - walk the game from the intro into gameplay for a test run.
 #
 # Alt skips the intro movies and picks the menu entry that continues the save
-# (what Renan presses by hand). The script brings the Bully window to the front,
+# (what the player presses by hand). The script brings the Bully window to the front,
 # taps Alt every -Every seconds and stops as soon as BullyVR.log shows the
 # stereo gameplay ("[stereo] recentred") or after -TimeoutSec.
 # Nothing is saved or changed: it only continues the existing save.
